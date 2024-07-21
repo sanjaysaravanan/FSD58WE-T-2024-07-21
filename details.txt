@@ -1,0 +1,119 @@
+Topics:
+  1. Context:
+
+    context is for the entire application used which means the entire application will re-render
+
+    ** context is to avoid only the props drilling, but the entire application will re-render again & again incase of change in context value **
+
+    ** Context should also be separated specific to the particular levels to avoid re-rendering of the entire application **
+
+    1. Creation:
+      Create a context using createContext
+    
+    2. Providing: 
+      using Context.Provider with value prop
+    
+    3. Consuming/Subscribing:
+      using useContext
+
+    useContext used to avoid props drilling but not the re-rendering
+
+      context --> a base context for the entire application 
+        or at particular component level
+
+        hooks
+          1. Create Context 
+          2. useContext 
+      
+      Eg: theme --> light / dark theme for the entire application
+          language --> language for the entire application
+        
+        Programming Language Selection on coding platform
+      
+      Provider: Provides the Context to the entire component tree
+      Consume: useContext
+
+      Advantage:
+        Properties or state context on a grandparent component
+        can be used by a grandchild with using a middle parent
+      
+      Disadvantage:
+        Does not avoid the re-rendering of the child components
+  
+  2. Example: 
+        Simple Layout:
+          header
+          aside
+          footer
+          main
+
+          above are semantic tags with special meaning, but it behaves exactly like a div tag
+
+        Simple Light Theme Dark Theme
+        Light / Theme Dark for routing Application
+
+        Convert all the states to use context
+
+  3. Basic Form Handling - Refer: https://github.com/sanjaysaravanan/fsd58we-t-crud/blob/main/src/components/ProductAddForm.jsx
+  
+  4. ref in react
+
+      useRef() --> to store a value which changes but not used in the rendering
+      
+      hook used to access the DOM element
+
+      ref.current === e.target ( very similar ) 
+
+        e.target can be only on actionable elements (button, form)
+
+      **ref.current/e.target cannot be used to change/alter the contents of the DOM / DOM**
+      should be used only for actions on the DOM Elements of application,
+
+      1. Scrolling 
+      2. Sliding
+      3. Play an audio
+      4. Stop an audio
+      5. Resetting a form
+
+      ** Ref should not be used to alter the DOM, it should only be used to do actions like above **
+
+      key, ref both the cannot be used as a prop name for a component,
+      because they used by VDOM to identify/capture a VDOM element
+
+      https://react.dev/reference/react/useRef
+  
+  5. useReducer
+      **reducer** is single function which can do multiple things/change the values based a set of instructions
+
+      Handling Multiple different state values with single function
+
+      Advanced version of useState:
+        it can be used when we change the same state with more than three actions
+
+Task:
+  Complete the below tasks,
+    Day 25: https://docs.google.com/document/d/1ft6tjqQj6dsLbHJ1t2fPHgTQRSZwAE-qBzlxqTqWezw/edit
+
+    Pages:
+      / or /products - Listing all the products in JSON
+      /cart -> Display only the products in the Cart
+
+  Hint:
+    create a CartContext with values as Array of Items.
+    value={{ items, removeFromCart, addToCart }}
+ 
+    Consuming and display the values and total calculation
+
+Next Session:
+
+  3. Working with Forms & basic data processing in reactjs
+    Please refer src/Profile.jsx for form handling using useState
+
+    Finish the CRUD application
+
+Game Implementation:
+
+  1. TicTacToe
+  2. Matching Tiles
+
+  
